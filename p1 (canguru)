@@ -1,0 +1,52 @@
+CANGURUL
+A fost odată ca niciodată, a fost un cangur care creştea ca Făt Frumos din
+poveste, într-un an precum alţii în zece. Într-o zi a început să facă sărituri după
+cum urmează:
+ În prima zi a sărit k metri.
+ A doua zi a sărit în plus faţă de prima zi cu de zece ori lungimea
+saltului din prima zi.
+ A treia zi a sărit în plus faţă de prima zi cu de zece ori lungimea saltului din a doua zi.
+La fel a sărit şi în zilele următoare până în ziua cu numărul n.
+Lungimea totală pe care cangurul a reuşit să o sară în cele n zile este dată de suma lungimilor săriturilor din
+cele n zile.
+Cerinţă : scrieţi un program cangur.cpp care calculează câţi metri a sărit cangurul, în total, în cele n
+zile.
+Date de intrare : din fișierul cangur.in se citesc valorile k şi n în această ordine, cu semnificația din
+enunț.
+Date de ieşire : fișierul cangur.out va conține o singură valoare naturală reprezentând câţi metri a sărit
+cangurul, în total, după cele n zile.
+Restricţii şi precizări
+ n şi k sunt numere naturale
+ 0 < n  9
+ 0 < k  9
+Exemplu
+cangur.in cangur.out Explicaţie
+7 3 861 I zi: 7 metri
+II zi: 7+70= 77 metri
+III zi: 7+770=777 metri
+7 metri+ 77 metri+ 777 metri= 861 metri
+
+
+----------------------
+
+
+with open("cangur.in", "r") as f:
+    for x in f:
+        n = x
+list = []
+for x in n:
+    list.append(x)
+list.pop(1)
+k = int(list[0])
+n = int(list[1])
+
+a = k
+summa, i= 0, 0
+if n > 9 and k > 9:
+  while i<n:
+    summa += k
+    k *= 10
+    k += a
+    i+=1
+  with open("cangur.out", 'w') as f1:
+    f1.write(str(summa))
