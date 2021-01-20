@@ -1,0 +1,68 @@
+Bomboane
+Lucy lucrează n ore într-o fabrică de bomboane. Bomboanele care vin pe banda
+rulantă trebuie împachetate și puse în cutii. La început, pe bandă, sosesc câte k
+bomboane în fiecare oră. Din p în p ore bomboanele sunt transportate în 
+magazine astfel: dacă în cutii sunt un număr par de bomboane jumătate din ele vor fi transportate, iar dacă în
+cutii sunt un număr impar de bomboane Lucy primește cadou o bomboană, iar din ceea ce a rămas jumătate
+sunt transportate. După un transport numărul de bomboane care vin pe bandă crește cu 1.
+Cerință: cunoscând n (numărul de ore pe care le lucrează Lucy), k (numărul de bomboane pe oră care vin
+inițial pe banda rulantă) și p (intervalul de timp la care bomboanele sunt transportate) scrieți un program care
+calculează câte bomboane se găsesc în cutii după n ore.
+Date de intrare: fișierul bomboane.in conține 3 numere naturale n, k și p, separate printr-un spațiu, cu
+semnificația din enunț.
+Date de ieșire: fișierul bomboane.out va conține un număr natural, reprezentând numărul de bomboane se
+care găsesc în cutii după n ore.
+Restricții și precizări:
+ 1 ≤ p ≤ n ≤ 1 000 000;
+ 1 ≤ k ≤ 2 000;
+ Lucy lucrează foarte repede, așa că timpul de împachetare este neglijabi
+
+-----------------------
+
+
+
+lists=[]
+m = 0
+def space(n):
+    if n == " ":
+        return False
+    else:
+        return True
+with open('bomboane.in', 'r') as f:
+    for x in f:
+        for v in x:
+            lists.append(v)
+
+while m < (len(lists)/2):
+    lists.remove(' ')
+    m+=1
+
+n = int(lists[0])
+k = int(lists[1])
+p = int(lists[2])
+i = 0
+
+bomb = 0
+counter = 0
+
+if p >= 1 and p <= 1000000 and n>= 1 and n <= 1000000 and k>= 1 and k <= 2000:
+    while counter < n:
+        if i < p:
+            bomb += k
+            i += 1
+            counter += 1
+            if i == p:
+                if bomb % 2 == 0:
+                    bomb = bomb / 2
+                else:
+                    bomb = bomb - 1
+                    bomb = bomb / 2
+                i = 0
+                k+=1
+else:
+    pass
+
+bomb=  int(bomb)
+bomb = str(bomb)
+with open("bomboane.out", 'w') as f1:
+    f1.write(bomb)
