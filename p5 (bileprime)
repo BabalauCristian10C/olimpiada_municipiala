@@ -1,0 +1,26 @@
+Bileprim - http://campion.edu.ro/arhiva/index.php?page=problem&action=view&id=1176
+=================================================================================================
+x = 3 #numarul de schimbari
+a = 4 #numarul de bile din cosul A
+b = 12 #numarul de bile din cosul B
+l = []
+
+for i, val in enumerate(range(x), start = 0): #introducerea numerelor 
+    x = int(input(" "))
+    l.append(x)
+
+c = 0
+
+for num in l:
+   for i in range(2,num):
+       if (num % i) == 0:
+           a+=num
+           b-=num
+           break
+   else:
+       if a >= num:
+            a -= num
+            b += num
+       else:
+           pass
+print(a)
