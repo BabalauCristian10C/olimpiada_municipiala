@@ -1,0 +1,38 @@
+Codul pin - http://campion.edu.ro/arhiva/index.php?page=problem&action=view&id=1194 
+
+==========================================================
+
+def prime(x):
+    a=True
+    lists = []
+    while a == True:
+        for i in range(6000, x):
+            for b in range(2,i):
+                if i%b == 0:
+                    break
+                if i+1 == x:
+                    a = False
+            else:
+                lists.append(i)
+                a= False
+    if 0 in lists:
+        lists.remove(0)
+    lists.sort(reverse = True)
+    return lists
+
+a = prime(9999) # crearea listei cu numere prime
+
+with open("pin.in", "r") as f:
+    x = f.read()
+k,p = x.split(' ',1)
+
+for nn in a:
+    if str(k) not in str(nn) and str(p) not in str(nn):
+        print(nn)
+        b = nn
+        break
+    else:
+        pass
+
+with open("pin.out", 'w') as f2:
+    f2.write(str(b))
