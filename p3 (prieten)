@@ -1,0 +1,76 @@
+Prieten
+Pitagora la întrebarea cine este Prietenul? a afirmat: "Acela care este alt eu, ca numerele 220 și 284". De
+altfel, Pitagora a și denumit numerele 220 și 284 numere prietene, asta deoarece divizorii lui 220 sunt 1,
+2, 4, 5, 10, 11, 20, 22, 44, 55 și 110, iar suma acestora este 284, iar divizorii lui 284 sunt 1, 2, 4, 71 și 142,
+iar suma acestora este 220. Generalizând, două numere sunt prietene, dacă fiecare număr este egal cu
+suma divizorilor celuilalt număr.
+Cerință: dându-se n și o succesiune de n perechi de numere natural, să se scrie un program care
+calculează câte din perechile date sunt numere prietene.
+Date de intrare: fișierul prieten.in conține pe prima linie o valoare naturală n, iar pe fiecare din
+următoarele n linii, câte două numere natural separate printr-un spațiu.
+Date de ieșire: fișierul prieten.out conține pe prima linie un număr natural reprezentând numărul de
+perechi de numere prietene.
+Restricții și precizări:
+- 1 ≤ n ≤ 100 000;
+- numerele din fișier sunt numere naturala mai mici decât 100 000;
+Exemplu:
+
+4
+6 28
+220 284
+100 8
+5020 5564
+
+raspuns
+2 
+Exista 2 perechi de numere perfecte (220, 284),
+(5020, 5564).
+
+
+5
+220 284
+1184 1210
+2620 2924
+5020 5564
+6232 6368
+
+raspuns
+5
+
+=========================================================================
+
+a = []
+final = []
+perechi = 0
+with open("prieten.in", "r") as f:
+    for x in f.readlines():
+        a.append(x)
+
+for b in a:
+    if "\n" in b:
+        z = b.replace("\n", '')
+        final.append(z)
+    else:
+        final.append(b)
+final.pop(0)
+
+for one in final:
+    suma_a, suma_b = 0, 0
+    a, b = one.split(' ', 1)
+    a = int(a)
+    b = int(b)
+    if type(a) == int and type(b) == int:
+        a1 = [x for x in range(1, a) if a % x == 0]
+        b1 = [x for x in range(1, b) if b % x == 0]
+        for ax in a1:
+            suma_a += ax
+        for bx in b1:
+            suma_b += bx
+        if suma_a == b and suma_b == a:
+            perechi += 1
+        else:
+            pass
+    else:
+        pass
+with open('prieten.out', 'w') as f2:
+    f2.write(str(perechi))
