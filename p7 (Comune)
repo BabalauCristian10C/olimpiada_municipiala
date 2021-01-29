@@ -1,0 +1,28 @@
+https://prnt.sc/xu2b1p
+
+==========================================
+
+with open('prieten.out', 'r') as f:
+    list = f.readline().split()
+
+
+i = 0
+data = tuple(list)
+c1 = set(str(data[0]))
+c2 = set(str(data[1]))
+a = c1.intersection(c2)
+result_1 = len(a) #cifrele in comun
+
+li = [x for x in list[0] if True]
+li_2 = [x for x in list[1] if True]
+
+ma = max(li)
+mi = min(li_2)
+
+result_2 = int(ma) - int(mi)
+
+
+with open('comune.out', 'w') as f2:
+    f2.write(str(result_1))
+    f2.write(" ")
+    f2.write(str(result_2))
