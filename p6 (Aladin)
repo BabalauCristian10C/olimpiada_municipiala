@@ -1,0 +1,24 @@
+https://prnt.sc/xu10vo
+
+==============================================================
+
+with open('prieten.out', 'r') as f:
+    nefolosit = f.readline()
+    intrare = f.readline().split()
+
+#intrare_1 = ['67','132','5014','8'] # daca doriti sa cititi din fisier
+
+output = ""
+temp = []
+i= 0
+while i < len(intrare):
+    for a in intrare[i]:
+        temp.append(int(a))
+    maximal = max(temp)
+    temp = []
+    i+=1
+    output+=str(maximal)
+print(output)
+
+with open('aladin.out', 'w') as f2:
+    f2.write(str(output))
