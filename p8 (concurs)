@@ -1,0 +1,28 @@
+Concurs3 - http://campion.edu.ro/arhiva/index.php?page=problem&action=view&id=881
+
+=============================================
+
+
+with open('prieten.out', 'r') as f:
+    sub = f.readline()
+    n = f.readline()
+    data = f.readline().split()
+    
+if sub in data:
+    result_1 = "DA"
+else:
+    result_1 = "NU"
+result_2 = 0
+result_3 = 0
+for a in data:
+    if a[0] == sub[0]:
+        result_2 += 1
+    if a[1] == sub[1]:
+        result_3 +=1
+
+with open('concurs3.out', 'w') as f2:
+    f2.write(str(result_1))
+    f2.write(" ")
+    f2.write(str(result_2))
+    f2.write(" ")
+    f2.write(str(result_3))
